@@ -1,0 +1,199 @@
+:root {
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+@font-face {
+  font-family: "manrope";
+  src: url("../fonts/Manrope.ttf");
+}
+
+.container {
+  width: 800px;
+  height: 300px;
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow:
+      2.3px 2.3px 1.9px rgba(0, 0, 0, 0.005),
+      5.4px 5.4px 4.3px rgba(0, 0, 0, 0.007),
+      9.7px 9.7px 7.7px rgba(0, 0, 0, 0.009),
+      16.1px 16.1px 12.8px rgba(0, 0, 0, 0.011),
+      26.5px 26.5px 21.2px rgba(0, 0, 0, 0.013),
+      46.2px 46.2px 37px rgba(0, 0, 0, 0.015),
+      100px 100px 80px rgba(0, 0, 0, 0.02);
+}
+
+.cardImage {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.articleContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  padding-top: 15px;
+}
+
+.articleText {
+  font-family: "manrope";
+}
+
+.articleText h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--very-dark-grayish-blue);
+}
+
+.articleText p {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 150%;
+  color: var(--very-dark-grayish-blue);
+}
+
+.articleAuthorContainer {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.articleAuthor {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  height: 50px;
+  border-radius: 100%;
+  margin-right: 20px;
+}
+
+.authorName {
+  font-family: "manrope";
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--very-dark-grayish-blue);
+  margin-bottom: -10px;
+}
+
+.date {
+  font-family: "manrope";
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--grayish-blue);
+}
+
+.shareIcon {
+  border: none;
+  border-radius: 100%;
+  padding: 10px;
+  position: inline-block;
+  display: flex;
+}
+
+.shareIcon img {
+  background: var(--light-grayish-blue);
+}
+
+.shareIcon:hover {
+  cursor: pointer;
+}
+
+.shareContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.shareContainer img {
+  fill: white;
+  background-color: transparent;
+}
+
+.shareContainer p {
+  font-family: "manrope";
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--grayish-blue);
+}
+
+.shareIcon .shareContainer {
+  width: 200px;
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  background-color: var(--very-dark-grayish-blue);
+  padding: 5px;
+  margin-left: -97px;
+  margin-top: -70px;
+  border-radius: 10px;
+}
+
+.shareIcon:focus .shareContainer {
+  visibility: visible;
+}
+
+.shareIcon .shareContainer::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--desaturated-dark-blue) transparent transparent transparent;
+}
+
+.mobileShareHidden {
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    width: 350px;
+    height: 630px;
+    position: relative;
+  }
+  .shareIcon:focus .shareIconImage {
+    z-index: 100;
+    position: relative;
+    border: none;
+    border-radius: 100%;
+    padding: 10px;
+    margin-right: -10px;
+    fill: white;
+  }
+  .shareContainer {
+    justify-content: flex-start;
+  }
+  .shareContainer p {
+    margin-left: 20px;
+  }
+  .shareContainer img {
+    margin-left: 20px;
+  }
+  .shareIcon .shareContainer {
+    width: 340px;
+    height: 70px;
+    margin-left: -285px;
+    margin-top: -25px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+  .shareIcon .shareContainer::after {
+    border: none;
+    position: relative;
+  }
+}
